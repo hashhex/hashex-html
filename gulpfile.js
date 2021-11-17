@@ -51,7 +51,7 @@ function styles() {
 }
 
 function template() {
-    return src('src/pages/*.html')
+    return src('src/pages/**/*.html')
         .pipe(twig())
         .pipe(dest('dist'))
         .pipe(browserSync.stream());
@@ -87,7 +87,7 @@ function cleanImg() {
 function startwatch() {
 	watch(['src/scss/**/*'], parallel('styles'));
 	watch(['src/js/**/*.js'], parallel('scripts'));
-	watch(['src/pages/*.pug', 'src/pages/**/*.html'], parallel('template'));
+	watch(['src/pages/**/*.pug', 'src/pages/**/*.html'], parallel('template'));
 	watch(['src/assets/**/*'], parallel('copy'));
 }
 
